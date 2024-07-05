@@ -1,0 +1,22 @@
+.background-landing-page{
+    background: url('../assets/images/bg_placeholder.jpg');
+    background-position: center;
+    color: black;
+    height: 400px;
+    text-align: center;
+    padding: 150px 0;
+}
+.title-landing-page{
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 900;
+}
+.justify{
+    text-align: justify;
+}
+.bold{
+    font-weight: 900;
+}
+.center{
+    text-align: center;
+    padding: 20px;
+}

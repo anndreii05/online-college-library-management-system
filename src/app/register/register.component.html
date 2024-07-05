@@ -1,0 +1,14 @@
+<app-header-admin></app-header-admin>
+<h1 style="text-align: center;">Register a student</h1>
+<br>
+<div class="container">
+    <form class="border border-secondary border-pers" (ngSubmit)="registerStudent()">
+        <input class="form-control" type="text" placeholder="First name" name="firstname" [(ngModel)]="firstName" required>
+        <br>
+        <input class="form-control" type="text" placeholder="Last name" id="lastname" name="lastname" [(ngModel)]="lastName" required>
+        <br>
+        <input class="form-control" type="text" placeholder="Student code" id="studentcode" name="studentcode" [(ngModel)]="studentCode" required>
+        <button class="btn btn-primary" type="submit">Register</button>
+    </form>
+</div>
+<br>
