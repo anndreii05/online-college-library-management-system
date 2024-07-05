@@ -1,0 +1,51 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">{{title}}</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navigation-bar" aria-controls="navigation-bar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navigation-bar">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#about-us">About us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#features">Features</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#demo">Demo</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#loginForm">LOGIN</a>
+          </li>
+        </ul>
+          
+    </div>
+  </div>
+</nav>
+
+<!-- Popup shown at login -->
+<div class="modal fade" id="loginForm" tabindex="-1" aria-labelledby="loginForm" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Login to our platform</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="verifyData()">
+          <input class="form-control" type="text" placeholder="Username" name="username" [(ngModel)]="username" required>
+          <br>
+          <input class="form-control" type="password" placeholder="Password" id="password" name="password" [(ngModel)]="password" required>
+          <br>
+          <div class="modal-footer">
+            <button class="btn btn-primary" type="Submit" data-bs-dismiss="modal">Login</button>
+          </div>
+      </form>
+      </div>
+    </div>
+  </div>
+</div>

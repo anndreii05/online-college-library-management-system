@@ -1,0 +1,65 @@
+<app-header-admin></app-header-admin>
+<br>
+<h1 style="text-align: center;">Articles database</h1>
+<div class="container table-responsive">
+    <p *ngIf="articles.length !== 0">Following articles were added:</p>
+    <table class="table table-striped"  *ngIf="articles.length !== 0">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Title</th>
+                <th scope="col">Category</th>
+                <th scope="col">Author</th>
+                <th scope="col">ISBN</th>
+                <th scope="col">Available articles</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of articles">
+                <th>{{item.id}}</th>
+                <th>{{item.title}}</th>
+                <th>{{item.category}}</th>
+                <th>{{item.author}}</th>
+                <th>{{item.isbn}}</th>
+                <th>{{item.numberofarticles}}</th>
+                <th>
+                  <button class="btn btn-danger" type="submit" (click)="deleteArticle(item.id)">Delete</button>
+                </th>
+            </tr>
+        </tbody>
+    </table>
+    <p *ngIf="articles.length === 0">No articles are registered on this platform! Press <b>Insert article</b> button to proceed!</p>
+    <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#insertArticle">Insert article</a>
+</div>
+
+<!-- Popup shown when inserting an article -->
+<div class="modal fade" id="insertArticle" tabindex="-1" aria-labelledby="insertArticleLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Insert an article</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="container">
+                <form (ngSubmit)="registerArticle()">
+                    <input class="form-control" type="text" placeholder="Title" name="articletitle" [(ngModel)]="articleTitle" required>
+                    <br>
+                    <input class="form-control" type="text" placeholder="Category" name="articlecategory" [(ngModel)]="articleCategory" required>
+                    <br>
+                    <input class="form-control" type="text" placeholder="Author" name="articleauthor" [(ngModel)]="articleAuthor" required>
+                    <br>
+                    <input class="form-control" type="text" placeholder="ISBN" name="articleisbn" [(ngModel)]="articleISBN" required>
+                    <br>
+                    <input class="form-control" type="text" placeholder="Number of articles" name="articlenumber" [(ngModel)]="articleNumber" required>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary" type="submit">Insert</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- <app-footer></app-footer> -->

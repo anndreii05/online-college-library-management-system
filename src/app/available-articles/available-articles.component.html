@@ -1,0 +1,60 @@
+<app-header-student></app-header-student>
+<br>
+<h1 style="text-align: center;">Available articles</h1>
+<div class="container table-responsive">
+    <p *ngIf="articles.length !== 0">Following articles are available:</p>
+    <table class="table table-striped"  *ngIf="articles.length !== 0">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Title</th>
+                <th scope="col">Category</th>
+                <th scope="col">Author</th>
+                <th scope="col">ISBN</th>
+                <th scope="col">Available articles</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of articles">
+                <th>{{item.id}}</th>
+                <th>{{item.title}}</th>
+                <th>{{item.category}}</th>
+                <th>{{item.author}}</th>
+                <th>{{item.isbn}}</th>
+                <th>{{item.numberofarticles}}</th>
+                <th>
+                    <button type="submit" class="btn btn-success" (click)="bookItem(item.id, item.numberofarticles)">Book</button>
+                </th>
+            </tr>
+        </tbody>
+    </table>
+    <p *ngIf="articles.length != 0" >Missing a very desired article? Press <b>Request article</b> button in order to request your desired article.</p>
+    <button *ngIf="articles.length != 0" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#requestArticle">Request article</button>
+    <p *ngIf="articles.length === 0">Your college library has not yet registered articles! Propose this thing to librarian!</p>
+</div>
+
+<!-- Modal for requesting article -->
+<div class="modal fade" id="requestArticle" tabindex="-1" aria-labelledby="requestArticle" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Request article</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form (ngSubmit)="requestArticle()">
+            <input class="form-control" type="text" placeholder="Title of the requested article" name="titlereqarticle" [(ngModel)]="titleReqArticle" required>
+            <br>
+            <input class="form-control" type="text" placeholder="Author of the requested article" name="authorreqarticle" [(ngModel)]="authorReqArticle" required>
+            <br>
+            <input class="form-control" type="text" placeholder="Category of the requested article" name="categoryreqarticle" [(ngModel)]="categoryReqArticle" required>
+            <br>
+            <div class="modal-footer">
+              <button class="btn btn-primary" type="Submit" data-bs-dismiss="modal">Request</button>
+            </div>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>

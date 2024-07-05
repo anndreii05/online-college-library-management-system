@@ -1,0 +1,29 @@
+<app-header-student></app-header-student>
+<br>
+<h1 style="text-align: center;">Reserved articles</h1>
+<div class="container table-responsive">
+    <p *ngIf="reservedArticles.length !== 0">Following articles were reserved:</p>
+    <table class="table table-striped"  *ngIf="reservedArticles.length !== 0">
+        <thead>
+            <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Category</th>
+                <th scope="col">ISBN</th>
+                <th scope="col">Loan date</th>
+                <th scope="col">Due date</th>
+                <th scope="col">Penality ({{valute}})</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of reservedArticles">
+                <th>{{item.title}}</th>
+                <th>{{item.category}}</th>
+                <th>{{item.isbn}}</th>
+                <th>{{item.actualdate}}</th>
+                <th>{{item.duedate}}</th>
+                <th>{{ getDifferenceDueAndActual(item.actualdate, item.duedate) }}</th>
+            </tr>
+        </tbody>
+    </table>
+    <p *ngIf="reservedArticles.length === 0">No articles were reserved by you yet!</p>
+</div>
