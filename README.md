@@ -1,6 +1,6 @@
 # Online college library management system
 This application represents a CRM (called BibOnline) for a fictive school which manages all the articles from the library school.
-As we can see, the repository is private and takes part form my disertation thesis.
+This application makes part of my disertation thesis.
 
 # Used technologies
 - HTML
